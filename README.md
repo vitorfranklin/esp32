@@ -40,4 +40,18 @@ Para começar a desenvolver com o ESP32, você precisará de algumas ferramentas
 - **Arduino IDE:**
   1. Instale o [Arduino IDE](https://www.arduino.cc/en/software).
   2. Adicione a URL de Gerenciador de Placas do ESP32: `https://dl.espressif.com/dl/package_esp32_index.json`.
-  3. Vá para **Ferramentas** > **Placa** > **G
+  3. Vá para **Ferramentas** > **Placa** > **Gerenciador de Placas** e instale o pacote ESP32.
+
+- **Thonny IDE:**
+  1. Instale o [Thonny IDE](https://thonny.org/).
+  2. Vá para **Configurações** > **Interpreter** e selecione **MicroPython (ESP32)**.
+
+### 2. Instalação do Firmware
+
+- **MicroPython:**
+  1. Baixe o firmware MicroPython para ESP32 [aqui](https://micropython.org/download/esp32/).
+  2. Use o [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) para gravar o firmware no ESP32:
+
+```bash
+esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 esp32-20220117-v1.18.bin
